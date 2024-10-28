@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <title>NeroMC • Home</title>
+</head>
+<body>
+    <header>
+        <a href="Home.html" class="logo">NeroMC</a>
+        <nav class="navigation">
+            <a href="Home.html" class="active"><i class="fa-solid fa-house-user"></i>&nbsp;Home</a>
+            <a href="rules.html"><i class="fa-solid fa-gavel"> </i>&nbsp;rules</a>
+            <a href="#Test2">Test2</a>
+            <a href="#Test3">Test3</a>
+            <a href="#Test4">Test4</a>
+            <a href="staff.html"><i class="icon fas fa-users fa-fw"></i>&nbsp;Staff-فريق العمل</a>
+            <div class="sec">
+                <ul>
+                    <li>
+                        <a class="login-button" id="loginButton" href="login.html">Login</a>
+                        <a class="register-button" id="registerButton" href="register.html">Register</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="profile-dropdown">
+                <div class="profile-dropdown-btn" onclick="toggle()">
+                    <div class="profile-img">
+                        <i class="fa-solid fa-circle"></i>
+                </div>
+
+                <span>
+                Yousef
+                <i class="fa-solid fa-angle-down"></i>
+                </span>
+            </div>
+                <ul>
+                    <li>
+                        <a class="profile-button" id="profileButton" href="profile.html" style="display: none;">Profile</a>
+                    </li>
+                </ul>
+            </div>
+            <ul class="profile-dropdown-list">
+                <li class="profile-dropdown-list-item">
+                    <a href="#">
+                        <i class="fa-regular fa-user"></i>
+                        Edit Profile
+                    </a>
+                </li>
+                <li class="profile-dropdown-list-item">
+                    <a href="#">
+                        <i class="fa-solid fa-sliders"></i>
+                        Settings
+                    </a>
+                </li>
+                <hr>
+                <li class="profile-dropdown-list-item">
+                    <a href="#">
+                        <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                        log out
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="main">
+        <div>
+            <h2><span>NeroMC</span><br>Welcome to NeroMC</h2><br>
+            <h3>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Minus labore dolores esse. Odit similique
+                doloribus tenetur doloremque, sunt commodi in ipsa repudiandae debitis deleniti blanditiis quibusdam
+                quaerat neque asperiores ea</h3>
+            <a href="#projects" class="main-btn">play.neromc.com</a>
+            <div class="social-icon">
+                <a href="https://discord.gg/gZYUrbda" target="_blank">&nbsp;<i class="fa-brands fa-discord"></i></a>&nbsp;&nbsp;&nbsp;&nbsp;
+                <a href="https://www.youtube.com/@NeroZ24/videos" target="_blank">&nbsp;<i class="fa-brands fa-youtube"></i></a>
+            </div>
+        </div>
+        
+        <div class="main_logo">
+            <img src="logo.jpg" alt="logo of Nero chanlge"/>
+        </div>
+    </section>
+
+    <script>
+        // Check if user is logged in (for simplicity, check localStorage)
+        const isLoggedIn = localStorage.getItem('isLoggedIn');
+
+        if (isLoggedIn) {
+            document.querySelector('.login-button').style.display = 'none';
+            document.querySelector('.register-button').style.display = 'none';
+            document.querySelector('.profile-dropdown').style.display = 'inline'; // Show profile button
+        }
+        let profileDropdownList = document.querySelector(".profile-dropdown-list");
+        let btn = document.querySelector(".profile-dropdown-btn");
+        // this function display or hide profile dropdown list
+        const toggle = ()=>profileDropdownList.classList.toggle('active');
+        window.addEventListener('click',function(e){
+            //hide dropdown list if user click outside dropdown button
+            if(!btn.contains(e.target))profileDropdownList.classList.remove("active");
+        });
+    </script>
+    <script src="IP.js"></script>
+</body>
+</html>

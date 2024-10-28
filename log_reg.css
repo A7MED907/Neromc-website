@@ -1,0 +1,154 @@
+/* استيراد الخطوط */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+/* إعدادات عامة */
+* {
+    font-family: "Poppins", sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    background-image: url('background.jpg'); /* استخدم الصورة الخلفية المناسبة */
+    background-size: cover;
+    color: white; /* تغيير لون النص */
+}
+
+/* تنسيق الهيدر */
+header {
+    background-color: rgba(8, 8, 8, 0.8); /* خلفية شفافة قليلاً */
+    width: 100%;
+    position: fixed;
+    z-index: 999;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 4px 45px;
+}
+
+/* تنسيق الشعار */
+.logo {
+    text-decoration: none;
+    color: #EE6F40;
+    font-weight: 700;
+    font-size: 1.8em;
+    transition: 0.5s ease;
+}
+
+.logo:hover {
+    transform: scale(1.1);
+}
+
+/* تنسيق القائمة */
+.navigation {
+    display: flex;
+    align-items: center;
+}
+
+.navigation ul {
+    list-style: none;
+    display: flex;
+}
+
+.navigation a {
+    color: white;
+    text-decoration: none;
+    font-size: 1em;
+    font-weight: 600;
+    padding: 0 7px;
+    border-radius: 15px;
+    transition: 0.5s ease;
+}
+
+.navigation a:hover {
+    background-color: #505050;
+}
+
+/* حاوية النموذج */
+.container {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - 80px); /* ترك مساحة للعنصر العلوي */
+    margin-top: 60px; /* ترك مساحة للعنصر العلوي */
+    margin-left: 15em;
+}
+
+/* تنسيق حاوية النموذج */
+.form-container {
+    background-color: rgba(0, 0, 0, 0.7); /* خلفية مظلمة للنموذج */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    width: 300px;
+}
+
+/* تنسيق النموذج */
+.form {
+    display: flex;
+    flex-direction: column;
+}
+
+input {
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+/* تنسيق الأزرار */
+button {
+    padding: 10px;
+    background-color: orange; /* لون الزر */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: darkorange; /* تغيير لون الزر عند التحويم */
+}
+
+.hidden {
+    display: none;
+}
+
+/* تنسيق الروابط النشطة */
+nav a.active {
+    color: rgba(0, 183, 255, 0.76);
+}
+
+/* تنسيق قسم الأزرار في الهيدر */
+.sec {
+    display: flex;
+    gap: 1.5rem;
+    margin-left: auto; 
+}
+
+.sec a {
+    display: inline-block;
+    padding: 0.2rem 1.2rem;
+    background-color: #EE6F40;
+    color: white;
+    font-size: 1rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    border-radius: 3px;
+    transition: 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.sec a:hover {
+    background-color: transparent;
+    color: #EE6F40;
+    border: 2px solid #EE6F40;
+    transform: scale(1.1);
+}
+
+/* إضافة تنسيق للمسافة بين روابط الهيدر */
+nav a {
+    margin-right: 1rem;
+}

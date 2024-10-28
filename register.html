@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="log_reg.css">
+    <title>Register</title>
+</head>
+<body>
+    <header>
+        <a href="Home.html" class="logo">NeroMC</a>
+        <nav class="navigation">
+            <a href="Home.html" class="active"><i class="fa-solid fa-house-user"></i>&nbsp;Home</a>
+            <a href="rules.html"><i class="fa-solid fa-gavel"> </i>&nbsp;rules</a>
+            <a href="#Test2">Test2</a>
+            <a href="#Test3">Test3</a>
+            <a href="#Test4">Test4</a>
+            <a href="staff.html"><i class="icon fas fa-users fa-fw"></i>&nbsp;Staff-فريق العمل</a>
+            <div class="sec">
+                <ul>
+                    <li>
+                        <a class="login-button" href="login.html">Login</a>
+                        <a class="register-button" href="register.html">Register</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="profile">
+                <ul>
+                    <li>
+                        <a class="profile-button" id="profileButton" href="profile.html" style="display: none;">Profile</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container">
+        <div class="form-container">
+            <form id="register-form">
+                <input type="text" name="username" placeholder="Username" required>
+                <input type="email" name="email" placeholder="Email" required>
+                <input type="password" name="password" placeholder="Password" required>
+                <input type="password" name="confirmPassword" placeholder="Confirm Password" required>
+                <button type="submit">Register</button>
+            </form>
+            <div id="message"></div>
+        </div>
+    </div>
+
+    <script>
+        const form = document.getElementById('register-form');
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const formData = new FormData(form);
+            const data = Object.fromEntries(formData.entries());
+
+            // Check if password and confirm password match
+            if (data.password !== data.confirmPassword) {
+                document.getElementById('message').innerText = "Passwords do not match!";
+                return;
+            }
+
+            try {
+                const response = await fetch('http://localhost:3000/register', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(data),
+                });
+
+                const result = await response.text();
+
+                if (response.ok) {
+                    alert(result); // Show success message
+                    localStorage.setItem('isLoggedIn', true); // تعيين حالة تسجيل الدخول
+                    window.location.href = 'Home.html'; // Redirect to home page
+                } else {
+                    document.getElementById('message').innerText = result; // Show error message
+                }
+            } catch (error) {
+                console.error('Error:', error);
+            }
+        });
+    </script>
+    <script src="IP.js"></script>
+</body>
+</html>
